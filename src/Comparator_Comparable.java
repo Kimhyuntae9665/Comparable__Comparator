@@ -12,13 +12,14 @@ public class Comparator_Comparable {
 		System.out.println("strArr="+Arrays.toString(strArr));
 		
 		Arrays.sort(strArr,new Descending());//대상 기준 모두 충족 기준은 내림차순으로 직접 Comparator 구현  
+//		Descending은 Comparator를 구현 했으므로 Comparator의 자손 sort(대상,Comparator com) com==new Descending에 들어올 수 있다.
 		System.out.println("strArr="+Arrays.toString(strArr));
 
 	}
 
 }
 
-class Descending implements Comparator{
+class Descending implements Comparator{ //Descending은 Comparator의 자손 이므로 
 	public int compare(Object o1,Object o2) {
 		if(o1 instanceof Comparable && o2 instanceof Comparable) { //if()코드는 원래 Comparable의 CompareTo()의 기본 코드 (오름차순 정렬)
 			Comparable c1 = (Comparable)o1;
